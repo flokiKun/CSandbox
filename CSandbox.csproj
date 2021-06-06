@@ -5,4 +5,8 @@
         <TargetFramework>net6.0</TargetFramework>
     </PropertyGroup>
 
+    <ItemGroup>
+      <Content Include=".github\workflows\github-actions-demo.yml" />
+    </ItemGroup>
+
 </Project>

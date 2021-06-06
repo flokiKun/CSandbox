@@ -10,26 +10,7 @@ namespace CSandbox
         private const double Delta = .05;
         public abstract class Temperature
         {
-            private double Value { get; init; } = .0;
-            private const string TempSymbol = "°T";
-
-            protected Temperature()
-            {
-                Console.WriteLine($"Input temperature in {TempSymbol} - ");
-                Value = Convert.ToDouble(Console.ReadLine());
-            }
-
-            protected Temperature(object obj)
-            {
-                Value = obj switch
-                {
-                    int i => i,
-                    float f => f,
-                    double d => d,
-                    _ => throw new Exception()
-                };
-            }
-            
+            private protected double Value { get; init; }
             public static implicit operator float(Temperature temp) => (float) temp.Value;
             public static implicit operator double(Temperature temp) => temp.Value;
             public static implicit operator int(Temperature temp) => (int) temp.Value;
@@ -57,12 +38,44 @@ namespace CSandbox
 
         public class Celsius : Temperature
         {
-            private const string TempSymbol = "°C";
+            private string TempSymbol {get;} = "°C";
+
+            public Celsius()
+            {
+                Console.WriteLine($"Input temperature in {TempSymbol} - ");
+                Value = Convert.ToDouble(Console.ReadLine());
+            }
+            public Celsius(object obj)
+            {
+                Value = obj switch
+                {
+                    int i => i,
+                    float f => f,
+                    double d => d,
+                    _ => throw new Exception()
+                };
+            }
         }
         
         public class Fahrenheit : Temperature
         {
-            private const string TempSymbol = "°F";
+            private string TempSymbol {get;} = "°F";
+
+            public Fahrenheit()
+            {
+                Console.WriteLine($"Input temperature in {TempSymbol} - ");
+                Value = Convert.ToDouble(Console.ReadLine());
+            }
+            public Fahrenheit(object obj)
+            {
+                Value = obj switch
+                {
+                    int i => i,
+                    float f => f,
+                    double d => d,
+                    _ => throw new Exception()
+                };
+            }
         }
     }
 }

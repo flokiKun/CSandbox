@@ -6,7 +6,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Content Include=".github\workflows\github-actions-demo.yml" />
+      <Folder Include=".github\workflows" />
     </ItemGroup>
 
 </Project>
